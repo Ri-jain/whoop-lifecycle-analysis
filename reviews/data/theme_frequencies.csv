@@ -1,0 +1,25 @@
+theme,polarity,mentions,pct_corpus,neg_reviews,pos_reviews
+sleep insight,🟢 pos,1792,17.47,466,1022
+hardware defect,🔴 neg,1521,14.82,418,917
+actionable insight,🟢 pos,1488,14.50,331,1054
+recovery score,🟢 pos,1087,10.59,267,758
+strain / coaching,🟢 pos,729,7.11,201,507
+subscription resentment,🔴 neg,687,6.70,213,427
+customer service,🔴 neg,623,6.07,200,388
+price / expensive,🔴 neg,586,5.71,158,395
+sync / connectivity,🔴 neg,526,5.13,169,292
+behavior change,🟢 pos,481,4.69,40,421
+accuracy trust,🟢 pos,459,4.47,91,333
+compares to Garmin,⚪ comp,459,4.47,90,287
+billing / auto-renew charge,🔴 neg,448,4.37,185,235
+5.0 upgrade fee,🔴 neg,441,4.30,118,279
+cancellation friction,🔴 neg,400,3.90,229,155
+compares to Fitbit,⚪ comp,368,3.59,70,219
+accuracy doubt,🔴 neg,336,3.27,172,147
+app bugs / crashes,🔴 neg,334,3.26,130,145
+compares to Apple Watch,⚪ comp,323,3.15,55,218
+battery (any),🔴 neg,321,3.13,118,179
+refund dispute,🔴 neg,136,1.33,66,61
+comfort / wearability,🟢 pos,128,1.25,13,112
+compares to Oura,⚪ comp,123,1.20,26,85
+compares to Amazfit/Samsung,⚪ comp,106,1.03,26,67

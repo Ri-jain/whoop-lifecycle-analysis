@@ -1,0 +1,9 @@
+.venv/
+reviews/.trustpilot_key
+__pycache__/
+*.pyc
+
+# Raw scraped reviews contain review text + author names — do not publish.
+# Keep the aggregate outputs and code only.
+reviews/data/*.csv
+!reviews/data/theme_frequencies.csv

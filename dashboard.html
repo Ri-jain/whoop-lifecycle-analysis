@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>WHOOP Member Sentiment & Lifecycle KPIs — dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAFAF7; --card:#FFFFFF; --ink:#22201C; --ink-soft:#565049; --line:rgba(34,32,28,.14);
+    --coral:#D85A30; --amber:#FAEEDA; --sage:#6E7E6A; --neu:#C9C3B8; --radius:12px;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Inter",system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.55;
+    -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1000px;margin:0 auto;padding:56px 28px 90px;}
+  .serif{font-family:"Playfair Display",Georgia,serif;}
+  .mono{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;}
+
+  .eyebrow{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:11px;
+    letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 16px;}
+  h1{font-family:"Playfair Display",Georgia,serif;font-weight:700;font-size:38px;line-height:1.1;margin:0 0 12px;}
+  .sub{color:var(--ink-soft);font-size:16px;margin:0 0 8px;max-width:60ch;}
+  .nav{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:12px;margin:0 0 8px;}
+  .nav a{color:var(--coral);text-decoration:none;border-bottom:1px solid rgba(216,90,48,.35);}
+  .rule{border:0;border-top:.5px solid var(--line);margin:34px 0;}
+
+  h2{font-family:"Playfair Display",Georgia,serif;font-weight:600;font-size:22px;margin:44px 0 4px;}
+  .sect-note{color:var(--ink-soft);font-size:13px;margin:0 0 18px;}
+  .illus{display:inline-block;font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:9.5px;
+    letter-spacing:.06em;text-transform:uppercase;color:#8a744f;background:var(--amber);
+    padding:2px 8px;border-radius:20px;vertical-align:middle;margin-left:8px;}
+
+  /* stat tiles */
+  .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:8px 0;}
+  .tile{background:var(--card);border:.5px solid var(--line);border-radius:var(--radius);padding:18px 18px;}
+  .tile .k{font-family:"Playfair Display",Georgia,serif;font-weight:700;font-size:30px;line-height:1;}
+  .tile .l{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.06em;
+    text-transform:uppercase;color:var(--ink-soft);margin-top:8px;line-height:1.5;}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px;}
+  .card{background:var(--card);border:.5px solid var(--line);border-radius:var(--radius);padding:20px 22px;}
+  .card h3{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.09em;
+    text-transform:uppercase;color:var(--ink-soft);margin:0 0 16px;font-weight:500;}
+
+  /* horizontal bars */
+  .hbar{margin-bottom:11px;}
+  .hbar .lab{display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px;}
+  .hbar .lab .v{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:11px;color:var(--ink-soft);}
+  .track{height:6px;background:rgba(34,32,28,.07);border-radius:4px;overflow:hidden;}
+  .track > span{display:block;height:100%;border-radius:4px;}
+  .fill-coral{background:var(--coral);} .fill-sage{background:var(--sage);}
+  .fill-ink{background:#4a463f;}
+
+  /* stacked sentiment bar */
+  .srow{display:grid;grid-template-columns:130px 1fr 96px;align-items:center;gap:12px;margin-bottom:10px;font-size:13px;}
+  .srow .nm{color:var(--ink);} .srow .nm small{color:var(--ink-soft);}
+  .stack{height:14px;border-radius:4px;overflow:hidden;display:flex;background:rgba(34,32,28,.06);}
+  .stack > span{height:100%;}
+  .s-pos{background:var(--sage);} .s-neu{background:var(--neu);} .s-neg{background:var(--coral);}
+  .srow .mstar{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:11px;color:var(--ink-soft);text-align:right;}
+  .legend{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:10.5px;color:var(--ink-soft);margin-top:6px;}
+  .legend b{font-weight:400;} .dotp{color:var(--sage);} .dotn{color:var(--coral);} .dotu{color:#a49a89;}
+
+  /* lifecycle stages */
+  .stages{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;}
+  .stage{background:var(--card);border:.5px solid var(--line);border-radius:var(--radius);padding:16px 14px;}
+  .stage .st{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.06em;
+    text-transform:uppercase;color:var(--coral);margin-bottom:10px;}
+  .stage ul{margin:0;padding-left:15px;font-size:12.5px;color:var(--ink);}
+  .stage li{margin-bottom:6px;}
+  .stage .ph{color:var(--ink-soft);font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:10px;}
+
+  .foot{font-size:12px;color:var(--ink-soft);border-top:.5px solid var(--line);padding-top:16px;margin-top:44px;}
+
+  @media (max-width:820px){
+    .tiles{grid-template-columns:repeat(2,1fr);} .grid2{grid-template-columns:1fr;}
+    .stages{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:520px){
+    .wrap{padding:40px 18px 64px;} h1{font-size:30px;}
+    .srow{grid-template-columns:96px 1fr 70px;} .stages{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <p class="eyebrow">Companion dashboard · WHOOP Lifecycle Marketing</p>
+  <h1 class="serif">Member sentiment &amp; lifecycle KPIs</h1>
+  <p class="nav mono"><a href="index.html">&larr; Back to the analysis</a></p>
+  <p class="sub">Built from 10,260 public reviews collected and scored for this analysis. The sentiment panels are real data; the lifecycle-KPI panel is the structure I would build in-seat, shown with illustrative values because internal WHOOP data is not public.</p>
+
+  <hr class="rule" />
+
+  <!-- headline tiles -->
+  <div class="tiles">
+    <div class="tile"><div class="k">10,260</div><div class="l">reviews analyzed</div></div>
+    <div class="tile"><div class="k">5</div><div class="l">platforms</div></div>
+    <div class="tile"><div class="k">4.8 / 3.2</div><div class="l">app rating vs company rating</div></div>
+    <div class="tile"><div class="k">1.0★</div><div class="l">BBB customer score</div></div>
+  </div>
+
+  <!-- coverage + sentiment -->
+  <h2 class="serif">Coverage and sentiment by source</h2>
+  <p class="sect-note">Newest reviews per platform. Reddit is unrated (discussion, not star reviews); sentiment scored from text.</p>
+  <div class="card">
+    <div class="srow"><span class="nm">Reddit comments <small>n=4,004</small></span>
+      <span class="stack"><span class="s-pos" style="width:52%"></span><span class="s-neu" style="width:28%"></span><span class="s-neg" style="width:20%"></span></span>
+      <span class="mstar">no stars</span></div>
+    <div class="srow"><span class="nm">Reddit posts <small>n=4,000</small></span>
+      <span class="stack"><span class="s-pos" style="width:57%"></span><span class="s-neu" style="width:18%"></span><span class="s-neg" style="width:25%"></span></span>
+      <span class="mstar">no stars</span></div>
+    <div class="srow"><span class="nm">Google Play <small>n=2,000</small></span>
+      <span class="stack"><span class="s-pos" style="width:56%"></span><span class="s-neu" style="width:15%"></span><span class="s-neg" style="width:29%"></span></span>
+      <span class="mstar">2.97★</span></div>
+    <div class="srow"><span class="nm">Trustpilot <small>n=200</small></span>
+      <span class="stack"><span class="s-pos" style="width:65%"></span><span class="s-neu" style="width:5%"></span><span class="s-neg" style="width:30%"></span></span>
+      <span class="mstar">3.24★</span></div>
+    <div class="srow"><span class="nm">BBB <small>n=46</small></span>
+      <span class="stack"><span class="s-pos" style="width:32%"></span><span class="s-neu" style="width:8%"></span><span class="s-neg" style="width:60%"></span></span>
+      <span class="mstar">1.09★</span></div>
+    <div class="srow"><span class="nm">Apple App Store <small>n=10</small></span>
+      <span class="stack"><span class="s-pos" style="width:80%"></span><span class="s-neu" style="width:0%"></span><span class="s-neg" style="width:20%"></span></span>
+      <span class="mstar">2.30★</span></div>
+    <p class="legend"><b><span class="dotp">■</span> positive &nbsp; <span class="dotu">■</span> neutral &nbsp; <span class="dotn">■</span> negative</b> &nbsp; (VADER compound score on review text)</p>
+  </div>
+
+  <!-- rating distribution -->
+  <h2 class="serif">Rating distribution: the barbell</h2>
+  <p class="sect-note">Both rated platforms show a barbell (heavy at 5★ and 1★), the signature of a polarizing relationship.</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>Google Play · n=2,000 · mean 2.97</h3>
+      <div class="hbar"><div class="lab"><span>5★</span><span class="v">716</span></div><div class="track"><span class="fill-sage" style="width:98%"></span></div></div>
+      <div class="hbar"><div class="lab"><span>4★</span><span class="v">165</span></div><div class="track"><span class="fill-sage" style="width:23%"></span></div></div>
+      <div class="hbar"><div class="lab"><span>3★</span><span class="v">187</span></div><div class="track"><span class="fill-ink" style="width:26%"></span></div></div>
+      <div class="hbar"><div class="lab"><span>2★</span><span class="v">203</span></div><div class="track"><span class="fill-coral" style="width:28%"></span></div></div>
+      <div class="hbar"><div class="lab"><span>1★</span><span class="v">729</span></div><div class="track"><span class="fill-coral" style="width:100%"></span></div></div>
+    </div>
+    <div class="card">
+      <h3>Trustpilot · n=200 · mean 3.24</h3>
+      <div class="hbar"><div class="lab"><span>5★</span><span class="v">84</span></div><div class="track"><span class="fill-sage" style="width:100%"></span></div></div>
+      <div class="hbar"><div class="lab"><span>4★</span><span class="v">23</span></div><div class="track"><span class="fill-sage" style="width:27%"></span></div></div>
+      <div class="hbar"><div class="lab"><span>3★</span><span class="v">13</span></div><div class="track"><span class="fill-ink" style="width:15%"></span></div></div>
+      <div class="hbar"><div class="lab"><span>2★</span><span class="v">17</span></div><div class="track"><span class="fill-coral" style="width:20%"></span></div></div>
+      <div class="hbar"><div class="lab"><span>1★</span><span class="v">63</span></div><div class="track"><span class="fill-coral" style="width:75%"></span></div></div>
+    </div>
+  </div>
+
+  <!-- themes -->
+  <h2 class="serif">Theme frequency across the corpus</h2>
+  <p class="sect-note">Share of reviews mentioning each theme. Bars share one scale for comparison.</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>Loyalty drivers</h3>
+      <div class="hbar"><div class="lab"><span>Sleep insight</span><span class="v">17.5%</span></div><div class="track"><span class="fill-sage" style="width:100%"></span></div></div>
+      <div class="hbar"><div class="lab"><span>Actionable insight</span><span class="v">14.5%</span></div><div class="track"><span class="fill-sage" style="width:83%"></span></div></div>
+      <div class="hbar"><div class="lab"><span>Recovery score</span><span class="v">10.6%</span></div><div class="track"><span class="fill-sage" style="width:61%"></span></div></div>
+      <div class="hbar"><div class="lab"><span>Strain and Coach</span><span class="v">7.1%</span></div><div class="track"><span class="fill-sage" style="width:41%"></span></div></div>
+      <div class="hbar"><div class="lab"><span>Behavior change</span><span class="v">4.7%</span></div><div class="track"><span class="fill-sage" style="width:27%"></span></div></div>
+      <div class="hbar"><div class="lab"><span>Accuracy trust</span><span class="v">4.5%</span></div><div class="track"><span class="fill-sage" style="width:26%"></span></div></div>
+      <div class="hbar"><div class="lab"><span>Comfort</span><span class="v">1.2%</span></div><div class="track"><span class="fill-sage" style="width:7%"></span></div></div>
+    </div>
+    <div class="card">
+      <h3>Churn drivers</h3>
+      <div class="hbar"><div class="lab"><span>Hardware defect</span><span class="v">14.8%</span></div><div class="track"><span class="fill-coral" style="width:85%"></span></div></div>
+      <div class="hbar"><div class="lab"><span>Subscription resentment</span><span class="v">6.7%</span></div><div class="track"><span class="fill-coral" style="width:38%"></span></div></div>
+      <div class="hbar"><div class="lab"><span>Customer service</span><span class="v">6.1%</span></div><div class="track"><span class="fill-coral" style="width:35%"></span></div></div>
+      <div class="hbar"><div class="lab"><span>Price and long-run cost</span><span class="v">5.7%</span></div><div class="track"><span class="fill-coral" style="width:33%"></span></div></div>
+      <div class="hbar"><div class="lab"><span>Billing and auto-renew</span><span class="v">4.4%</span></div><div class="track"><span class="fill-coral" style="width:25%"></span></div></div>
+      <div class="hbar"><div class="lab"><span>Cancellation friction</span><span class="v">3.9%</span></div><div class="track"><span class="fill-coral" style="width:22%"></span></div></div>
+      <div class="hbar"><div class="lab"><span>Diminishing returns</span><span class="v">1.0%</span></div><div class="track"><span class="fill-coral" style="width:6%"></span></div></div>
+    </div>
+  </div>
+
+  <!-- competitor + keywords -->
+  <div class="grid2" style="margin-top:26px;">
+    <div class="card">
+      <h3>Rival most often compared</h3>
+      <div class="hbar"><div class="lab"><span>Garmin</span><span class="v">459</span></div><div class="track"><span class="fill-ink" style="width:100%"></span></div></div>
+      <div class="hbar"><div class="lab"><span>Fitbit</span><span class="v">368</span></div><div class="track"><span class="fill-ink" style="width:80%"></span></div></div>
+      <div class="hbar"><div class="lab"><span>Apple Watch</span><span class="v">323</span></div><div class="track"><span class="fill-ink" style="width:70%"></span></div></div>
+      <div class="hbar"><div class="lab"><span>Oura</span><span class="v">123</span></div><div class="track"><span class="fill-ink" style="width:27%"></span></div></div>
+      <div class="hbar"><div class="lab"><span>Amazfit</span><span class="v">106</span></div><div class="track"><span class="fill-ink" style="width:23%"></span></div></div>
+    </div>
+    <div class="card">
+      <h3>Top phrases (bigrams)</h3>
+      <div class="hbar"><div class="lab"><span>heart rate</span><span class="v">550</span></div><div class="track"><span class="fill-ink" style="width:100%"></span></div></div>
+      <div class="hbar"><div class="lab"><span>apple watch</span><span class="v">426</span></div><div class="track"><span class="fill-ink" style="width:77%"></span></div></div>
+      <div class="hbar"><div class="lab"><span>fitbit air</span><span class="v">295</span></div><div class="track"><span class="fill-ink" style="width:54%"></span></div></div>
+      <div class="hbar"><div class="lab"><span>bicep band</span><span class="v">209</span></div><div class="track"><span class="fill-ink" style="width:38%"></span></div></div>
+      <div class="hbar"><div class="lab"><span>customer service</span><span class="v">194</span></div><div class="track"><span class="fill-coral" style="width:35%"></span></div></div>
+      <div class="hbar"><div class="lab"><span>free trial</span><span class="v">147</span></div><div class="track"><span class="fill-ink" style="width:27%"></span></div></div>
+      <div class="hbar"><div class="lab"><span>strength trainer</span><span class="v">142</span></div><div class="track"><span class="fill-ink" style="width:26%"></span></div></div>
+    </div>
+  </div>
+
+  <!-- lifecycle KPIs -->
+  <h2 class="serif">Lifecycle KPIs by stage <span class="illus">Illustrative structure · no internal data</span></h2>
+  <p class="sect-note">The dashboard I would build and maintain in Sigma on Snowflake, tracking each stage and linking communication data to behavior. Values shown are placeholders for structure.</p>
+  <div class="stages">
+    <div class="stage"><div class="st">Acquisition</div><ul>
+      <li>Trial &rarr; paid conversion</li><li>CAC by channel</li><li>Student-tier signups</li></ul>
+      <p class="ph">e.g. conv 00.0%</p></div>
+    <div class="stage"><div class="st">Activation</div><ul>
+      <li>Day-14 activation</li><li>First recovery streak</li><li>App opens / week</li></ul>
+      <p class="ph">e.g. D14 00.0%</p></div>
+    <div class="stage"><div class="st">Engagement</div><ul>
+      <li>Weekly active</li><li>Engagement-decay curve</li><li>Diminishing-returns flag</li></ul>
+      <p class="ph">e.g. WAU 00.0%</p></div>
+    <div class="stage"><div class="st">Retention</div><ul>
+      <li>Renewal rate</li><li>Voluntary vs involuntary churn</li><li>Chargeback rate</li></ul>
+      <p class="ph">e.g. renew 00.0%</p></div>
+    <div class="stage"><div class="st">Monetization</div><ul>
+      <li>ARPU</li><li>LTV by acquisition source</li><li>Expected revenue / prospect</li></ul>
+      <p class="ph">e.g. LTV $000</p></div>
+  </div>
+
+  <p class="foot">Sentiment panels: 10,260 public reviews (App Store, Google Play, Trustpilot, Reddit via Arctic Shift, BBB), collected and scored with the pipeline in this repository. Frequencies are sample-based, not a census; the Google Play mean reflects the newest 2,000 reviews and is more negative than the lifetime 4.77. Lifecycle-KPI values are illustrative placeholders. Method and code: see the repository README.</p>
+
+</main>
+</body>
+</html>
