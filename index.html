@@ -73,6 +73,15 @@
   .test dt{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:10.5px;letter-spacing:.05em;
     text-transform:uppercase;color:var(--ink-soft);padding-top:2px;}
   .test dt.ev{color:var(--coral);} .test dd{margin:0;}
+  .msg{border:.5px solid var(--line);border-radius:var(--radius);padding:20px 24px;margin:16px 0;}
+  .msg .mtag{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:10.5px;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--coral);margin-bottom:12px;}
+  .msg .subj{font-weight:600;font-size:15px;margin:0 0 8px;}
+  .msg .subj .pre{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:10.5px;
+    letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);font-weight:500;margin-right:8px;}
+  .msg .mbody{font-size:14px;color:var(--ink-soft);margin:0;line-height:1.55;}
+  .msg .mbody + .mbody{margin-top:10px;}
+  .msg .opt{display:block;margin:2px 0;} .msg strong{color:var(--ink);}
   .further{border:.5px solid var(--line);border-radius:var(--radius);padding:18px 24px;margin:16px 0;}
   .further p{margin:0 0 10px;font-size:14px;} .further p:last-child{margin:0;}
   .close{font-family:"Playfair Display",Georgia,serif;font-size:19px;line-height:1.5;margin:28px 0 20px;}
@@ -151,11 +160,23 @@
 
   <!-- 03 tests -->
   <p class="marker">03 · The tests</p>
-  <h2 class="serif">Two experiments at the moments that hurt</h2>
-  <p>The reviews point at specific, controllable moments. Both tests below target one of them, both are grounded in a measured theme, and both name a risk, because a test that watches only its target metric is not a test.</p>
+  <h2 class="serif">Three experiments at the moments that hurt</h2>
+  <p>The reviews point at specific, controllable moments. Each test below targets one of them, each is grounded in a measured theme, and each names a risk, because a test that watches only its target metric is not a test.</p>
 
   <div class="test">
-    <div class="tnum">Test A · cancellation · retention</div>
+    <div class="tnum">Test A · trial-to-paid · conversion</div>
+    <h3 class="serif">Let the trial choose its term</h3>
+    <dl>
+      <dt class="ev">Evidence</dt><dd>Subscription resentment (6.7%) and price and long-run cost (5.7%) are top leave-themes, and both concentrate at the trial-to-paid step, where a trial member is asked to commit to a full year at once. It is also the exact moment I dropped off: the checkout moved to the annual amount as I was deciding.</dd>
+      <dt>Mechanism</dt><dd>At the trial-to-paid step, present three explicit terms &mdash; 3, 6, and 12 months &mdash; priced so the longer commitments carry a clear per-month discount. Never pre-select the largest; let the member pick the door they can walk through.</dd>
+      <dt>Hypothesis</dt><dd>A lower-commitment entry point converts trial members who balk at a full year, and a share of them step up to a longer term at renewal once the product has proven itself.</dd>
+      <dt>Measure</dt><dd>Trial-to-paid conversion rate, and blended 12-month revenue per trial, so a lift in conversions is not bought by cannibalizing annual commitments.</dd>
+      <dt>Risk</dt><dd>Cheaper short terms could pull down members who would have committed annually anyway; watch revenue per trial, not conversion count alone.</dd>
+    </dl>
+  </div>
+
+  <div class="test">
+    <div class="tnum">Test B · cancellation · retention</div>
     <h3 class="serif">Cancel-flow save offers</h3>
     <dl>
       <dt class="ev">Evidence</dt><dd>Cancellation friction (3.9%) and subscription resentment (6.7%) are top leave-themes, and the cancel flow is where the most frustrated members already are. Today, if they exit, they cancel; there is no save.</dd>
@@ -167,7 +188,7 @@
   </div>
 
   <div class="test">
-    <div class="tnum">Test B · hardware release · retention and trust</div>
+    <div class="tnum">Test C · hardware release · retention and trust</div>
     <h3 class="serif">Pre-emptive upgrade clarity email</h3>
     <dl>
       <dt class="ev">Evidence</dt><dd>The WHOOP 5.0 upgrade-fee backlash is a measured theme (4.3% of reviews), and the complaints read as surprise, not sticker price.</dd>
@@ -180,6 +201,37 @@
 
   <h3 class="serif" style="font-size:19px;margin:34px 0 12px;">From measurement to member experience</h3>
   <p>Each test turns what members <em>feel</em> into what WHOOP <em>says</em>. The loyalty themes decide what to amplify: lead lifecycle messaging with sleep, recovery, and behavior-change value, because those are the measured sources of stickiness. The leave-themes decide what to preempt: a save offer at cancellation, clarity ahead of an upgrade, transparency before a renewal. The model scores the member, the score picks the message, the experiment measures the lift, and the result retrains the model.</p>
+
+  <!-- 04 sample messages -->
+  <p class="marker">04 · What members would actually hear</p>
+  <h2 class="serif">The strategy, made concrete</h2>
+  <p>A strategy is only as good as the words a member receives. Three sample messages, one per money moment, built on the same principles: open with the member and not the ask, name the date and the amount before any charge, and never bury the exit. This is what "the score picks the message" looks like in an inbox.</p>
+
+  <div class="msg">
+    <div class="mtag">Trial &rarr; paid · Test A</div>
+    <p class="subj"><span class="pre">Subject</span>Your trial ends in 3 days — pick the term that fits</p>
+    <p class="mbody">Your free trial wraps up soon. When you're ready, choose the commitment that works for <em>you</em>:</p>
+    <p class="mbody"><span class="opt"><strong>3 months</strong> — try it season to season</span>
+      <span class="opt"><strong>6 months</strong> — most popular</span>
+      <span class="opt"><strong>12 months</strong> — best per-month value</span></p>
+    <p class="mbody">No plan is pre-selected, and you'll see the exact amount and date before anything is charged.</p>
+  </div>
+
+  <div class="msg">
+    <div class="mtag">Pre-renewal · billing transparency</div>
+    <p class="subj"><span class="pre">Subject</span>Heads up: your renewal is July 30 ($199)</p>
+    <p class="mbody">This is a reminder, not a charge yet. On <strong>July 30</strong> your annual membership renews at <strong>$199</strong>. Nothing to do if you're staying — this is just so it's never a surprise.</p>
+    <p class="mbody">Want to change your plan, pause, or cancel first? All three take about 30 seconds.</p>
+  </div>
+
+  <div class="msg">
+    <div class="mtag">Cancellation · Test B</div>
+    <p class="subj"><span class="pre">Subject</span>Before you go — a couple of options</p>
+    <p class="mbody">We saw you started to cancel. No hard sell, but two things worth knowing first:</p>
+    <p class="mbody"><span class="opt"><strong>Pause instead</strong> — step away up to 60 days, keep all your history and trends.</span>
+      <span class="opt"><strong>3 months at a lower rate</strong>, if cost is the reason.</span></p>
+    <p class="mbody">And if it's simply time to move on, cancel in one tap and keep your data export. No maze.</p>
+  </div>
 
   <hr class="rule" />
   <p class="close serif">The product is already loved. What the reviews describe is a relationship that frays at a few controllable moments, and each of those moments is a message WHOOP owns. That is not a product problem. It is a lifecycle problem, which is the kind this team exists to solve.</p>
