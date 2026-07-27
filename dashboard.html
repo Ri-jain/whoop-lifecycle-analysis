@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>WHOOP Member Sentiment & Lifecycle KPIs — dashboard</title>
+<title>WHOOP Member Sentiment dashboard</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -90,9 +90,9 @@
 <main class="wrap">
 
   <p class="eyebrow">Companion dashboard · WHOOP Lifecycle Marketing</p>
-  <h1 class="serif">Member sentiment &amp; lifecycle KPIs</h1>
+  <h1 class="serif">Member sentiment</h1>
   <p class="nav mono"><a href="index.html">&larr; The analysis</a> &nbsp;·&nbsp; <a href="students.html">The student opportunity &rarr;</a></p>
-  <p class="sub">Built from 10,260 public reviews collected and scored for this analysis. The sentiment panels are real data; the lifecycle-KPI panel is the structure I would build in-seat, shown with illustrative values because internal WHOOP data is not public.</p>
+  <p class="sub">Built from 10,260 public reviews collected and scored for this analysis. Every panel below is real data from that corpus.</p>
 
   <hr class="rule" />
 
@@ -199,28 +199,7 @@
     </div>
   </div>
 
-  <!-- lifecycle KPIs -->
-  <h2 class="serif">Lifecycle KPIs by stage <span class="illus">Illustrative structure · no internal data</span></h2>
-  <p class="sect-note">The dashboard I would build and maintain in Sigma on Snowflake, tracking each stage and linking communication data to behavior. Values shown are placeholders for structure.</p>
-  <div class="stages">
-    <div class="stage"><div class="st">Acquisition</div><ul>
-      <li>Trial &rarr; paid conversion</li><li>CAC by channel</li><li>Student-tier signups</li></ul>
-      <p class="ph">e.g. conv 00.0%</p></div>
-    <div class="stage"><div class="st">Activation</div><ul>
-      <li>Day-14 activation</li><li>First recovery streak</li><li>App opens / week</li></ul>
-      <p class="ph">e.g. D14 00.0%</p></div>
-    <div class="stage"><div class="st">Engagement</div><ul>
-      <li>Weekly active</li><li>Engagement-decay curve</li><li>Diminishing-returns flag</li></ul>
-      <p class="ph">e.g. WAU 00.0%</p></div>
-    <div class="stage"><div class="st">Retention</div><ul>
-      <li>Renewal rate</li><li>Voluntary vs involuntary churn</li><li>Chargeback rate</li></ul>
-      <p class="ph">e.g. renew 00.0%</p></div>
-    <div class="stage"><div class="st">Monetization</div><ul>
-      <li>ARPU</li><li>LTV by acquisition source</li><li>Expected revenue / prospect</li></ul>
-      <p class="ph">e.g. LTV $000</p></div>
-  </div>
-
-  <p class="foot">Sentiment panels: 10,260 public reviews (App Store, Google Play, Trustpilot, Reddit via Arctic Shift, BBB), collected and scored with the pipeline in this repository. Frequencies are sample-based, not a census; the Google Play mean reflects the newest 2,000 reviews and is more negative than the lifetime 4.77. Lifecycle-KPI values are illustrative placeholders. Method and code: see the repository README.</p>
+  <p class="foot">10,260 public reviews (App Store, Google Play, Trustpilot, Reddit via Arctic Shift, BBB), collected and scored with the pipeline in this repository. Frequencies are sample-based, not a census; the Google Play mean reflects the newest 2,000 reviews and is more negative than the lifetime 4.77. Method and code: see the repository README.</p>
 
 </main>
 </body>
