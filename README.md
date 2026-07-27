@@ -1,18 +1,19 @@
 # WHOOP Lifecycle Marketing — an outside-in analysis
 
-A two-page analysis built for the WHOOP Business Analyst II (Lifecycle Marketing) role.
+A three-page analysis built for the WHOOP Business Analyst II (Lifecycle Marketing) role.
 It starts from one prospective member's trial-to-paid friction, tests that friction against
-the public record, sizes a student-membership opportunity, and proposes the experiments to
-prove it out.
+the public record, proposes the experiments to fix it, and sizes a student-membership
+opportunity as a separate acquisition play.
 
-## The two pages
+## The pages
 
 | Page | What it is |
 |---|---|
-| **[index.html](index.html)** | The analysis: the on-ramp story, the review-driven "rating paradox," a Massachusetts student-market opportunity, and five sentiment-grounded A/B tests. Market-sizing method is in the appendix. |
+| **[index.html](index.html)** | The analysis: why I did not become a member, the review-driven "rating paradox," and two sentiment-grounded tests (cancel-flow save offers, pre-emptive upgrade clarity). |
+| **[students.html](students.html)** | The student opportunity: a Massachusetts student-pilot market sizing and two pricing tests (student price at trial, student to full price at graduation), with method and sources in an appendix. |
 | **[dashboard.html](dashboard.html)** | Companion dashboard: member sentiment from 10,260 public reviews, plus the lifecycle-KPI structure I would build in-seat. |
 
-Open `index.html` in a browser, or serve the folder and enable GitHub Pages to view both online.
+Open `index.html` in a browser, or serve the folder and enable GitHub Pages to view all three online.
 
 ## The evidence base
 

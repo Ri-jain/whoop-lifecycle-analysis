@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The student opportunity: a WHOOP acquisition mechanism</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAFAF7; --ink:#22201C; --ink-soft:#565049; --line:rgba(34,32,28,.14);
+    --coral:#D85A30; --amber:#FAEEDA; --sage:#6E7E6A; --radius:12px; --col:680px;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+    font-size:17px;line-height:1.6;letter-spacing:.002em;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:var(--col);margin:0 auto;padding:64px 28px 96px;}
+  .serif{font-family:"Playfair Display",Georgia,"Times New Roman",serif;}
+  .mono{font-family:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;}
+  .eyebrow{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:11.5px;
+    letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 24px;}
+  h1.title{font-family:"Playfair Display",Georgia,serif;font-weight:600;font-size:44px;
+    line-height:1.1;letter-spacing:-.01em;margin:0 0 18px;}
+  .deck{font-size:18.5px;color:var(--ink-soft);margin:0 0 14px;max-width:36em;}
+  .nav{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.03em;margin:0;}
+  .nav a{color:var(--coral);text-decoration:none;border-bottom:1px solid rgba(216,90,48,.35);}
+  .nav a + a{margin-left:16px;}
+  .rule{height:0;border:0;border-top:.5px solid var(--line);margin:38px 0;}
+  .marker{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:11.5px;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--coral);margin:54px 0 14px;}
+  h2{font-family:"Playfair Display",Georgia,serif;font-weight:600;font-size:27px;
+    line-height:1.2;margin:0 0 16px;letter-spacing:-.01em;}
+  h3{font-size:16px;font-weight:600;margin:0 0 4px;}
+  p{margin:0 0 16px;} em{font-style:italic;} strong{font-weight:600;}
+  .cap{font-size:13px;color:var(--ink-soft);margin:0 0 16px;}
+  table{width:100%;border-collapse:collapse;margin:6px 0 8px;font-size:14px;}
+  th,td{text-align:left;padding:9px 12px;border-bottom:.5px solid var(--line);vertical-align:top;}
+  th{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.07em;
+    text-transform:uppercase;color:var(--ink-soft);font-weight:500;}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;}
+  tr:last-child td{border-bottom:none;}
+  .ladder td:first-child{color:var(--ink-soft);}
+  .ladder td:last-child{font-family:"Playfair Display",Georgia,serif;font-weight:600;}
+  .test{border:.5px solid var(--line);border-radius:var(--radius);padding:22px 24px;margin:16px 0;}
+  .test .tnum{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:11px;
+    letter-spacing:.1em;color:var(--coral);text-transform:uppercase;margin-bottom:6px;}
+  .test h3{font-family:"Playfair Display",Georgia,serif;font-size:20px;font-weight:600;margin:0 0 12px;}
+  .test dl{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin:0;font-size:14px;}
+  .test dt{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:10.5px;letter-spacing:.05em;
+    text-transform:uppercase;color:var(--ink-soft);padding-top:2px;}
+  .test dt.ev{color:var(--coral);} .test dd{margin:0;}
+  .note{font-size:13.5px;color:var(--ink-soft);border-left:2px solid var(--coral);padding:4px 0 4px 16px;margin:20px 0;}
+  .close{font-family:"Playfair Display",Georgia,serif;font-size:19px;line-height:1.5;margin:28px 0 24px;}
+  .pagebreak{border:0;border-top:.5px solid var(--line);margin:60px 0 0;}
+  .appendix{margin-top:38px;}
+  .tag-appendix{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:11px;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 8px;}
+  .srcnote{font-size:12px;color:var(--ink-soft);margin-top:14px;}
+  .caveat{font-size:12.5px;color:var(--ink-soft);border-top:.5px solid var(--line);padding-top:18px;margin-top:20px;}
+  @media (max-width:520px){
+    .wrap{padding:44px 20px 72px;} h1.title{font-size:32px;}
+    .test dl{grid-template-columns:1fr;gap:2px 0;} .test dt{padding-top:10px;}
+    .nav a + a{margin-left:0;display:block;margin-top:6px;}
+  }
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <p class="eyebrow">The student opportunity · WHOOP Lifecycle Marketing</p>
+  <h1 class="title serif">The members WHOOP is built for</h1>
+  <p class="deck">An acquisition mechanism, not a discount: sizing a Massachusetts student pilot, and the two tests that would prove its lifetime value.</p>
+  <p class="nav mono"><a href="index.html">&larr; Back to the analysis</a><a href="dashboard.html">Sentiment dashboard &rarr;</a></p>
+
+  <hr class="rule" />
+
+  <!-- opportunity -->
+  <p class="marker">04 · The opportunity</p>
+  <h2 class="serif">Built for them, not priced for them</h2>
+  <p>WHOOP's identity is performance: recovery, strain, Coach. The people who live that identity most fully are students, from college athletes to fitness-minded undergraduates, and today there is no on-ramp priced for them. That is the second friction I hit: even when the product fits, the price does not. Massachusetts, WHOOP's home market, is the natural pilot.</p>
+
+  <table class="ladder">
+    <tr><td>MA college enrollment</td><td class="num">~474,000</td></tr>
+    <tr><td>Undergraduates</td><td class="num">~327,000</td></tr>
+    <tr><td>Addressable student-athletes (net of existing BC and BU deals)</td><td class="num">~13,500</td></tr>
+    <tr><td>Fitness-engaged, non-varsity undergraduates</td><td class="num">~105K–115K</td></tr>
+  </table>
+  <p class="cap">Modeled estimates. Full method and sources in the appendix below.</p>
+
+  <p>At <strong>$119 per year</strong>, under $10 a month, a Massachusetts pilot at realistic penetration (15 to 25% of athletes, 2 to 5% of the fitness-engaged) would reach roughly <strong>4,000 to 8,400 members</strong> in Year 1 to 2, or about <strong>$480K to $1.0M</strong> in incremental recurring revenue. The figures are directional. The shape is the point: a renewable cohort, reachable at a student price that trades ARPU for a long retention runway. That is the Spotify student logic, an acquisition mechanism rather than a discount.</p>
+
+  <!-- student tests -->
+  <p class="marker">05 · The student tests</p>
+  <h2 class="serif">Proving the lifetime value</h2>
+  <p>A student price only makes sense if it earns back later. These two tests measure whether it does.</p>
+
+  <div class="test">
+    <div class="tnum">Test C · trial to conversion · monetization</div>
+    <h3 class="serif">A student price at the on-ramp</h3>
+    <dl>
+      <dt class="ev">Evidence</dt><dd>Price and long-run cost (5.7%) and subscription resentment (6.7%) are top leave-themes, and members compare WHOOP to subscription-free rivals far more than to Oura (Garmin 459 versus 123).</dd>
+      <dt>Mechanism</dt><dd>A verified student price (.edu, annually re-verified) at the trial-to-paid step, shown against the standard plan.</dd>
+      <dt>Hypothesis</dt><dd>A student price lifts trial-to-paid conversion without cannibalizing full-price signups.</dd>
+      <dt>Measure</dt><dd>Trial-to-paid conversion within the student segment; 90-day retention of converts.</dd>
+      <dt>Risk</dt><dd>Cannibalization of full-price signups; the verification gate is the mitigation, and blended ARPU is the guardrail.</dd>
+    </dl>
+  </div>
+
+  <div class="test">
+    <div class="tnum">Test D · graduation · monetization and retention</div>
+    <h3 class="serif">Student to full price, at graduation</h3>
+    <dl>
+      <dt class="ev">Evidence</dt><dd>An extension of the dominant price-sensitivity finding: removing the student price risks recreating the on-ramp barrier at graduation.</dd>
+      <dt>Mechanism</dt><dd>At the end of eligibility, a gradual price ramp with loyalty messaging that surfaces the recovery history the member has built, versus a hard jump to full price.</dd>
+      <dt>Hypothesis</dt><dd>A gradual ramp converts graduating students to full price, and retains them, better than a cliff.</dd>
+      <dt>Measure</dt><dd>Conversion to full price 90 days after the transition; 12-month post-graduation retention.</dd>
+      <dt>Risk</dt><dd>A churn spike at the transition; the ramp also delays full ARPU, so net revenue per graduate is the guardrail.</dd>
+    </dl>
+  </div>
+
+  <p class="note">One honest distinction: whether student-acquired members retain better than paid-acquired members cannot be a true A/B test, because acquisition source is not something you can randomize. That one is a matched-cohort comparison. Only the pricing and transition mechanics above are cleanly randomizable, and naming that difference is the point.</p>
+
+  <hr class="rule" />
+  <p class="close serif">For a Lifecycle Marketing team, a student on-ramp is not only a growth lever. It is lifecycle infrastructure. Members acquired at 20 have the longest lifetime ahead of them, and this is the window in which the performance identity forms. The pricing on-ramp for the youngest members is the first step of the lifecycle, and right now it is missing. I know, because I stood on it and stepped off.</p>
+
+  <!-- appendix -->
+  <hr class="pagebreak" />
+  <section class="appendix">
+    <p class="tag-appendix">Appendix</p>
+    <h2 class="serif">Massachusetts student membership: market sizing</h2>
+    <p>Verification would run on a standard .edu-email model, annually re-verified, similar to Spotify and Amazon Prime Student. Eligibility checks cannot distinguish undergraduate from graduate or athlete from non-athlete, so segmentation lives in the marketing channel, not the signup gate.</p>
+
+    <table>
+      <thead><tr><th>Metric</th><th class="num">Estimate</th><th>Basis</th></tr></thead>
+      <tbody>
+        <tr><td>MA total college enrollment</td><td class="num">~474,000</td><td>Univstats, 2024–25</td></tr>
+        <tr><td>MA undergraduate enrollment</td><td class="num">~327,000</td><td>Univstats, 2024–25</td></tr>
+        <tr><td>MA varsity / NCAA athletes</td><td class="num">~15,000</td><td>Modeled: MA NCAA programs × roster benchmarks</td></tr>
+        <tr><td>Covered by existing BC and BU WHOOP deals</td><td class="num">~1,300–1,500</td><td>BC / BU Athletics releases</td></tr>
+        <tr><td>Net addressable athletes (individual-pay)</td><td class="num">~13,500</td><td>Derived</td></tr>
+        <tr><td>Fitness-engaged, non-varsity undergrad share</td><td class="num">35–40%</td><td>Midpoint of Gen Z tracker use (70%) and Rock Health wearable ownership (46%)</td></tr>
+        <tr><td>Net addressable fitness-engaged pool</td><td class="num">~105K–115K</td><td>Derived</td></tr>
+        <tr><td>Proposed student price</td><td class="num">$119/yr</td><td>Under the "$10/month" willingness threshold, within 12-month billing</td></tr>
+        <tr><td>Pilot penetration, athletes</td><td class="num">15–25%</td><td>Judgment estimate</td></tr>
+        <tr><td>Pilot penetration, fitness-engaged</td><td class="num">2–5%</td><td>Judgment estimate</td></tr>
+        <tr><td>Estimated MA pilot members (Yr 1–2)</td><td class="num">~4,000–8,400</td><td>Derived</td></tr>
+        <tr><td>Estimated incremental ARR</td><td class="num">~$480K–$1.0M</td><td>Members × $119</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="serif" style="font-size:18px;margin:30px 0 10px;">Competitive benchmark: student discounts in wearables</h3>
+    <table>
+      <thead><tr><th>Product</th><th>Discount</th><th>Structure</th></tr></thead>
+      <tbody>
+        <tr><td>Strava Premium</td><td>~50% off</td><td>Software only, near-zero marginal cost</td></tr>
+        <tr><td>Oura Ring</td><td>10% off hardware</td><td>Hardware only; subscription untouched</td></tr>
+        <tr><td>Garmin</td><td>Up to 20% off hardware</td><td>Hardware only; no mandatory subscription</td></tr>
+        <tr><td>WHOOP (current)</td><td>None</td><td>Hardware bundled into subscription; no student tier</td></tr>
+      </tbody>
+    </table>
+    <p>No direct competitor bundles hardware into a recurring subscription the way WHOOP does. Software products discount deeply because marginal cost is near zero; hardware products discount shallowly because there is real device cost to protect. A WHOOP student tier prices a hybrid with no public precedent, so the $119/yr figure sits deliberately between the two benchmarks.</p>
+
+    <p class="srcnote"><strong>Sources:</strong> Sacra (WHOOP financials); Boston College and Boston University Athletics (WHOOP Unite partnerships); Univstats (MA enrollment, 2024–25); Grokipedia (MA NCAA programs); Coolest Gadgets / Statista (Gen Z tracker use); Rock Health 2025 Consumer Adoption Survey (wearable ownership); StudentBeans and Oura Member Care (competitor discount terms).</p>
+    <p class="srcnote"><strong>Disclaimers:</strong> Hard data (WHOOP financials, MA enrollment, competitor terms, the BC and BU partnerships) is sourced directly; the enrollment figure is from a single aggregator and should be cross-checked against NCES or mass.edu before final use. Modeled estimates (MA athlete count, fitness-engaged share) and all penetration and dollar figures are judgment, not benchmarked to a real pilot, and no hardware-bundled-subscription student precedent exists publicly. Treat downstream dollars as directional. This section demonstrates methodology and directional sizing, not a finalized business case.</p>
+
+    <p class="caveat">Companion pages: <a href="index.html" style="color:var(--coral);">the analysis</a> and <a href="dashboard.html" style="color:var(--coral);">the sentiment dashboard</a>.</p>
+  </section>
+
+</main>
+</body>
+</html>

@@ -20,7 +20,6 @@
   .wrap{max-width:var(--col);margin:0 auto;padding:64px 28px 96px;}
   .serif{font-family:"Playfair Display",Georgia,"Times New Roman",serif;}
   .mono{font-family:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;}
-
   .eyebrow{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:11.5px;
     letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 24px;}
   h1.title{font-family:"Playfair Display",Georgia,serif;font-weight:600;font-size:44px;
@@ -28,16 +27,14 @@
   .deck{font-size:18.5px;color:var(--ink-soft);margin:0 0 14px;max-width:36em;}
   .nav{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.03em;margin:0;}
   .nav a{color:var(--coral);text-decoration:none;border-bottom:1px solid rgba(216,90,48,.35);}
+  .nav a + a{margin-left:16px;}
   .rule{height:0;border:0;border-top:.5px solid var(--line);margin:38px 0;}
-
   .marker{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:11.5px;
     letter-spacing:.16em;text-transform:uppercase;color:var(--coral);margin:54px 0 14px;}
   h2{font-family:"Playfair Display",Georgia,serif;font-weight:600;font-size:27px;
     line-height:1.2;margin:0 0 16px;letter-spacing:-.01em;}
   h3{font-size:16px;font-weight:600;margin:0 0 4px;}
-  p{margin:0 0 16px;}
-  em{font-style:italic;} strong{font-weight:600;}
-
+  p{margin:0 0 16px;} em{font-style:italic;} strong{font-weight:600;}
   .paradox{border:.5px solid var(--line);border-radius:var(--radius);padding:30px 26px;
     margin:8px 0 10px;display:flex;align-items:center;gap:14px;}
   .pole{flex:1;text-align:center;}
@@ -49,14 +46,12 @@
   .gap-note{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:10.5px;
     letter-spacing:.08em;color:var(--coral);text-transform:uppercase;}
   .cap{font-size:13px;color:var(--ink-soft);margin:0 0 16px;}
-
   .strip{background:var(--amber);border-radius:var(--radius);padding:22px 24px;margin:24px 0;
     display:flex;align-items:center;gap:22px;flex-wrap:wrap;}
   .strip .big{font-family:"Playfair Display",Georgia,serif;font-weight:700;font-size:34px;line-height:1;}
   .strip .desc{font-size:13.5px;color:#6b5a3f;flex:1;min-width:210px;}
   .strip .src{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:10.5px;
     letter-spacing:.05em;color:#8a744f;display:block;margin-top:5px;}
-
   .themes{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin:6px 0 8px;}
   .themes h4{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:11px;
     letter-spacing:.1em;text-transform:uppercase;margin:0 0 14px;color:var(--ink-soft);}
@@ -67,20 +62,9 @@
   .bar > span{display:block;height:100%;border-radius:3px;}
   .bar.neg > span{background:var(--coral);} .bar.pos > span{background:var(--sage);}
   .tag{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:9.5px;color:var(--sage);letter-spacing:.04em;margin-left:6px;}
-
   .callout{background:var(--amber);border-radius:var(--radius);padding:22px 26px;margin:24px 0;}
   .callout .q{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-size:20px;line-height:1.4;margin:0 0 8px;}
   .callout .attr{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:11px;color:#8a744f;letter-spacing:.04em;}
-
-  table{width:100%;border-collapse:collapse;margin:6px 0 8px;font-size:14px;}
-  th,td{text-align:left;padding:9px 12px;border-bottom:.5px solid var(--line);vertical-align:top;}
-  th{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.07em;
-    text-transform:uppercase;color:var(--ink-soft);font-weight:500;}
-  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;}
-  tr:last-child td{border-bottom:none;}
-  .ladder td:first-child{color:var(--ink-soft);}
-  .ladder td:last-child{font-family:"Playfair Display",Georgia,serif;font-weight:600;}
-
   .test{border:.5px solid var(--line);border-radius:var(--radius);padding:22px 24px;margin:16px 0;}
   .test .tnum{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:11px;
     letter-spacing:.1em;color:var(--coral);text-transform:uppercase;margin-bottom:6px;}
@@ -91,26 +75,16 @@
   .test dt.ev{color:var(--coral);} .test dd{margin:0;}
   .further{border:.5px solid var(--line);border-radius:var(--radius);padding:18px 24px;margin:16px 0;}
   .further p{margin:0 0 10px;font-size:14px;} .further p:last-child{margin:0;}
-  .note{font-size:13.5px;color:var(--ink-soft);border-left:2px solid var(--coral);padding:4px 0 4px 16px;margin:20px 0;}
-
-  .close{font-family:"Playfair Display",Georgia,serif;font-size:19px;line-height:1.5;margin:28px 0 24px;}
+  .close{font-family:"Playfair Display",Georgia,serif;font-size:19px;line-height:1.5;margin:28px 0 20px;}
+  .pointer{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:13px;margin:0 0 24px;}
+  .pointer a{color:var(--coral);text-decoration:none;border-bottom:1px solid rgba(216,90,48,.35);}
   .caveat{font-size:12.5px;color:var(--ink-soft);border-top:.5px solid var(--line);padding-top:18px;margin-top:8px;}
-
-  /* appendix (page two) */
-  .pagebreak{border:0;border-top:.5px solid var(--line);margin:64px 0 0;}
-  .appendix{margin-top:40px;}
-  .appendix .tag-appendix{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:11px;
-    letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 8px;}
-  .srcnote{font-size:12px;color:var(--ink-soft);margin-top:14px;}
-
   @media (max-width:520px){
-    .wrap{padding:44px 20px 72px;}
-    h1.title{font-size:32px;}
-    .paradox{flex-direction:column;gap:18px;}
-    .gap{flex-direction:row;width:100%;} .gap-line{width:60px;}
+    .wrap{padding:44px 20px 72px;} h1.title{font-size:32px;}
+    .paradox{flex-direction:column;gap:18px;} .gap{flex-direction:row;width:100%;} .gap-line{width:60px;}
     .themes{grid-template-columns:1fr;gap:22px;}
     .test dl{grid-template-columns:1fr;gap:2px 0;} .test dt{padding-top:10px;}
-    .strip .big{font-size:28px;}
+    .strip .big{font-size:28px;} .nav a + a{margin-left:0;display:block;margin-top:6px;}
   }
 </style>
 </head>
@@ -119,16 +93,16 @@
 
   <p class="eyebrow">Outside-in analysis · for WHOOP Lifecycle Marketing</p>
   <h1 class="title serif">The member you almost had</h1>
-  <p class="deck">A prospective member's account of where WHOOP's lifecycle leaks, and five experiments to close it. Built from 10,260 public reviews and one personal data point.</p>
-  <p class="nav mono"><a href="dashboard.html">Companion: member sentiment dashboard &rarr;</a></p>
+  <p class="deck">Where WHOOP's lifecycle leaks, read from 10,260 public reviews and one personal data point, with the experiments I would run to close it.</p>
+  <p class="nav mono"><a href="students.html">The student opportunity &rarr;</a><a href="dashboard.html">Sentiment dashboard &rarr;</a></p>
 
   <hr class="rule" />
 
   <!-- 01 -->
   <p class="marker">01 · The on-ramp</p>
-  <h2 class="serif">One prospect, two kinds of friction</h2>
-  <p>In late 2025 I started a WHOOP free trial as a student. At the trial-to-paid step I chose the monthly plan, but the checkout moved to charge the full annual amount; my account balance stopped the transaction, and I never became a paying member. Even setting that aside, I could not have committed at full price on a student budget.</p>
-  <p>I am a single data point. But the friction I hit, a pricing on-ramp too steep for a student and a checkout that defaulted to the larger commitment, felt less like bad luck than like a pattern. So I went looking for it in the public record.</p>
+  <h2 class="serif">Why I did not become a member</h2>
+  <p>In late 2025 I started a WHOOP free trial as a student. At the trial-to-paid step I chose the monthly plan, but the checkout moved to charge the full annual amount; my account balance stopped the transaction, and I never became a paying member.</p>
+  <p>Two things discouraged me, and they were separate. One was the checkout itself defaulting to the larger commitment at the exact moment I was deciding. The other was simpler: even if the checkout had worked, I could not have committed at full price on a student budget. One friction was a flow; the other was a price. Neither was about the product, which I liked. That gap, between wanting the product and being able to stay, is what sent me looking at the public record.</p>
 
   <!-- 02 -->
   <p class="marker">02 · What the reviews say</p>
@@ -168,125 +142,56 @@
   </div>
   <p class="cap">Bars normalized within each column; percentages are the share of the corpus mentioning the theme. Positive themes are far more prevalent overall, so the product is genuinely loved. The negative themes are smaller but intense, and they cluster at money moments.</p>
 
-  <p>The pattern is consistent: members praise <em>the product</em> and resent <em>the relationship</em>, and the resentment concentrates where money changes hands. A quieter theme is a sense of <strong>diminishing returns</strong> (about 1% of reviews, on every platform): members feel they are seeing the same insights and start doing the math on cost. It is small in volume, but it mirrors the category's documented novelty decay. And when members name a rival, it is <strong>Garmin far more than Oura</strong> (459 mentions versus 123), which suggests the threat they feel is the subscription itself.</p>
+  <p>The pattern is consistent: members praise <em>the product</em> and resent <em>the relationship</em>, and the resentment concentrates at a few specific moments, cancellation, renewal, and hardware upgrades. A quieter theme is a sense of <strong>diminishing returns</strong> (about 1% of reviews, on every platform): members feel they are seeing the same insights and start doing the math on cost. And when members name a rival, it is <strong>Garmin far more than Oura</strong> (459 mentions versus 123), which suggests the threat they feel is the subscription itself.</p>
 
   <div class="callout">
     <p class="q">"I loved this piece of tech, however the billing is nonsense."</p>
     <p class="attr mono">From a member review that captures the paradox in a single line</p>
   </div>
 
-  <!-- 03 -->
-  <p class="marker">03 · The opportunity</p>
-  <h2 class="serif">The members WHOOP is built for, and prices out</h2>
-  <p>WHOOP's identity is performance: recovery, strain, Coach. The people who live that identity most fully are students, from college athletes to fitness-minded undergraduates, and today there is no on-ramp priced for them. Massachusetts, WHOOP's home market, is the natural pilot.</p>
-
-  <table class="ladder">
-    <tr><td>MA college enrollment</td><td class="num">~474,000</td></tr>
-    <tr><td>Undergraduates</td><td class="num">~327,000</td></tr>
-    <tr><td>Addressable student-athletes (net of existing BC and BU deals)</td><td class="num">~13,500</td></tr>
-    <tr><td>Fitness-engaged, non-varsity undergraduates</td><td class="num">~105K–115K</td></tr>
-  </table>
-  <p class="cap">Modeled estimates. Full method and sources in the appendix.</p>
-
-  <p>At <strong>$119 per year</strong>, under $10 a month, a Massachusetts pilot at realistic penetration (15 to 25% of athletes, 2 to 5% of the fitness-engaged) would reach roughly <strong>4,000 to 8,400 members</strong> in Year 1 to 2, or about <strong>$480K to $1.0M</strong> in incremental recurring revenue. The figures are directional. The shape is the point: a renewable cohort, reachable at a student price that trades ARPU for a long retention runway. That is the Spotify student logic, an acquisition mechanism rather than a discount.</p>
-
-  <!-- 04 -->
-  <p class="marker">04 · The tests</p>
-  <h2 class="serif">What I would run to prove it</h2>
-  <p>Every experiment below traces to a theme measured in the corpus, not to intuition. Each is built to move <strong>engagement, monetization, and retention across the member lifecycle</strong>, and each carries a guardrail, because a test that watches only its target metric is not a test.</p>
+  <!-- 03 tests -->
+  <p class="marker">03 · The tests</p>
+  <h2 class="serif">Two experiments at the moments that hurt</h2>
+  <p>The reviews point at specific, controllable moments. Both tests below target one of them, both are grounded in a measured theme, and both name a risk, because a test that watches only its target metric is not a test.</p>
 
   <div class="test">
-    <div class="tnum">Test 1 · trial to conversion · monetization</div>
-    <h3 class="serif">A student price at the on-ramp</h3>
+    <div class="tnum">Test A · cancellation · retention</div>
+    <h3 class="serif">Cancel-flow save offers</h3>
     <dl>
-      <dt class="ev">Evidence</dt><dd>Price and long-run cost (5.7%) and subscription resentment (6.7%) are top leave-themes; members compare WHOOP to subscription-free rivals far more than to Oura (Garmin 459 versus 123).</dd>
-      <dt>Hypothesis</dt><dd>A verified student price at trial-to-paid lifts conversion without cannibalizing full-price signups.</dd>
-      <dt>Primary</dt><dd>Trial-to-paid conversion within the student segment.</dd>
-      <dt>Guardrail</dt><dd>Blended ARPU and full-price signup rate.</dd>
-      <dt>Tells us</dt><dd>Whether price is the real barrier at the on-ramp, the exact friction I encountered.</dd>
+      <dt class="ev">Evidence</dt><dd>Cancellation friction (3.9%) and subscription resentment (6.7%) are top leave-themes, and the cancel flow is where the most frustrated members already are. Today, if they exit, they cancel; there is no save.</dd>
+      <dt>Mechanism</dt><dd>Intercept members who initiate the cancel flow with a segmented offer: three months at a reduced price, a pause option (skip 60 days without losing history), or a routed "why are you leaving?" survey.</dd>
+      <dt>Hypothesis</dt><dd>Cancel-flow save rate is a heavily underinvested metric. Most companies lose members who could have been kept for pennies.</dd>
+      <dt>Measure</dt><dd>Cancel-flow save rate and 90-day retention of saved members.</dd>
+      <dt>Risk</dt><dd>Some members should simply be let go; false-positive saves cost support time without producing loyal renewers.</dd>
     </dl>
   </div>
 
   <div class="test">
-    <div class="tnum">Test 4 · graduation · monetization and retention</div>
-    <h3 class="serif">Student to full price, at graduation</h3>
+    <div class="tnum">Test B · hardware release · retention and trust</div>
+    <h3 class="serif">Pre-emptive upgrade clarity email</h3>
     <dl>
-      <dt class="ev">Evidence</dt><dd>An extension of the dominant price-sensitivity finding: removing the student price risks recreating the on-ramp barrier at graduation.</dd>
-      <dt>Hypothesis</dt><dd>Graduating students moved off the student price via a gradual ramp convert to full price, and retain, better than those met with a hard jump.</dd>
-      <dt>Primary</dt><dd>Conversion to full price 90 days after the transition.</dd>
-      <dt>Guardrail</dt><dd>Churn and cancellation rate at the transition.</dd>
-      <dt>Tells us</dt><dd>The linchpin: whether student members become high-LTV full-price members. If they do, the discounted years were a down payment on a long lifetime.</dd>
-    </dl>
-  </div>
-
-  <div class="test">
-    <div class="tnum">Test 5 · checkout · monetization and trust</div>
-    <h3 class="serif">A truly month-to-month plan</h3>
-    <dl>
-      <dt class="ev">Evidence</dt><dd>Billing and auto-renew (4.4%) and cancellation friction (3.9%), plus reviews that there is no true monthly option, the grievance behind the 3.2 / 1.09 billing scores.</dd>
-      <dt>Hypothesis</dt><dd>A genuinely cancel-anytime monthly plan, offered at a premium price, raises conversion and reduces billing disputes for a net positive on value.</dd>
-      <dt>Primary</dt><dd>Expected revenue per prospect (conversion × price × tenure), not conversion alone.</dd>
-      <dt>Guardrail</dt><dd>Cannibalization of annual plans and blended LTV.</dd>
-      <dt>Tells us</dt><dd>Whether the current design costs more in lost trust than it protects in LTV. It also removes the "trapped" grievance behind the 3.2 score.</dd>
+      <dt class="ev">Evidence</dt><dd>The WHOOP 5.0 upgrade-fee backlash is a measured theme (4.3% of reviews), and the complaints read as surprise, not sticker price.</dd>
+      <dt>Mechanism</dt><dd>Members six or more months into their subscription, sent ahead of any next hardware release. Two variants: one proactively explains exactly what will happen at the release (pricing, eligibility, timing); the other is the status quo.</dd>
+      <dt>Hypothesis</dt><dd>The 5.0 backlash was surprise more than price. Surprise avoided is anger avoided.</dd>
+      <dt>Measure</dt><dd>NPS delta on the upgrade communication and cancel-rate delta versus prior release windows.</dd>
+      <dt>Risk</dt><dd>Telegraphing an unfavorable change could prompt some members to cancel earlier; watch net renewal revenue across the window.</dd>
     </dl>
   </div>
 
   <div class="further">
     <p><strong class="mono" style="font-size:11px;letter-spacing:.08em;color:var(--coral);text-transform:uppercase;">Further tests</strong></p>
-    <p><strong>Test 2, pre-renewal re-engagement.</strong> Grounded in the diminishing-returns theme. For members showing diminishing-returns signals before renewal, does a personalized "your recovery story" moment lift renewal rates? (Retention and engagement; guardrail: unsubscribe rate.)</p>
-    <p><strong>Test 3, transparent pre-renewal notice.</strong> Grounded in the billing complaints behind the 3.2 / 1.09 scores. Does a "renews in 14 days" heads-up reduce involuntary churn and chargebacks versus silent auto-renew? (Retention and trust; guardrail: net renewal revenue.)</p>
+    <p><strong>A truly month-to-month plan.</strong> The friction from my own checkout: a genuinely cancel-anytime monthly plan at a premium price, measured on expected revenue per prospect (conversion × price × tenure), guardrail on annual cannibalization.</p>
+    <p><strong>Pre-renewal re-engagement.</strong> Grounded in the diminishing-returns theme: a personalized "your recovery story" moment for members showing diminishing-returns signals before renewal, guardrail on unsubscribe rate.</p>
   </div>
 
   <h3 class="serif" style="font-size:19px;margin:34px 0 12px;">From measurement to member experience</h3>
-  <p>Each test turns what members <em>feel</em> into what WHOOP <em>says</em>. The loyalty themes decide what to amplify: lead early-lifecycle messaging with sleep, recovery, and behavior-change value, because those are the measured sources of stickiness. The leave-themes decide what to preempt: surface fresh insight against diminishing returns, teach correct wear against accuracy doubt, and make renewal timing transparent against billing surprise. The model scores the member, the score picks the message, the experiment measures the lift, and the result retrains the model.</p>
-
-  <p class="note">One honest distinction: whether student-acquired members retain better than paid-acquired members cannot be a true A/B test, because acquisition source is not something you can randomize. That one is a matched-cohort comparison. Only the pricing and transition mechanics above are cleanly randomizable, and naming that difference is the point.</p>
+  <p>Each test turns what members <em>feel</em> into what WHOOP <em>says</em>. The loyalty themes decide what to amplify: lead lifecycle messaging with sleep, recovery, and behavior-change value, because those are the measured sources of stickiness. The leave-themes decide what to preempt: a save offer at cancellation, clarity ahead of an upgrade, transparency before a renewal. The model scores the member, the score picks the message, the experiment measures the lift, and the result retrains the model.</p>
 
   <hr class="rule" />
-  <p class="close serif">For a Lifecycle Marketing team, a student on-ramp is not only a growth lever. It is lifecycle infrastructure. Members acquired at 20 have the longest lifetime ahead of them, and this is the window in which the performance identity forms. The pricing on-ramp for the youngest members is the first step of the lifecycle, and right now it is missing. I know, because I stood on it and stepped off.</p>
+  <p class="close serif">The product is already loved. What the reviews describe is a relationship that frays at a few controllable moments, and each of those moments is a message WHOOP owns. That is not a product problem. It is a lifecycle problem, which is the kind this team exists to solve.</p>
+  <p class="pointer mono">There is also an acquisition side to this, the members WHOOP is built for but does not yet price for. <a href="students.html">See the student opportunity &rarr;</a></p>
 
-  <p class="caveat">This reflects one candidate's outside-in analysis, one personal data point, and public information. Internal WHOOP data would refine every claim here. Most findings are directional, and the market and revenue figures are illustrative estimates with assumptions stated.</p>
-
-  <!-- ===== APPENDIX (PAGE TWO) ===== -->
-  <hr class="pagebreak" />
-  <section class="appendix">
-    <p class="tag-appendix">Appendix</p>
-    <h2 class="serif">Massachusetts student membership: market sizing</h2>
-    <p>WHOOP could pilot a discounted student membership in Massachusetts, its home market, before a national rollout. Verification would run on a standard .edu-email model, annually re-verified, similar to Spotify and Amazon Prime Student. Eligibility checks cannot distinguish undergraduate from graduate or athlete from non-athlete, so segmentation lives in the marketing channel, not the signup gate.</p>
-
-    <table>
-      <thead><tr><th>Metric</th><th class="num">Estimate</th><th>Basis</th></tr></thead>
-      <tbody>
-        <tr><td>MA total college enrollment</td><td class="num">~474,000</td><td>Univstats, 2024–25</td></tr>
-        <tr><td>MA undergraduate enrollment</td><td class="num">~327,000</td><td>Univstats, 2024–25</td></tr>
-        <tr><td>MA varsity / NCAA athletes</td><td class="num">~15,000</td><td>Modeled: MA NCAA programs × roster benchmarks</td></tr>
-        <tr><td>Covered by existing BC and BU WHOOP deals</td><td class="num">~1,300–1,500</td><td>BC / BU Athletics releases</td></tr>
-        <tr><td>Net addressable athletes (individual-pay)</td><td class="num">~13,500</td><td>Derived</td></tr>
-        <tr><td>Fitness-engaged, non-varsity undergrad share</td><td class="num">35–40%</td><td>Midpoint of Gen Z tracker use (70%) and Rock Health wearable ownership (46%)</td></tr>
-        <tr><td>Net addressable fitness-engaged pool</td><td class="num">~105K–115K</td><td>Derived</td></tr>
-        <tr><td>Proposed student price</td><td class="num">$119/yr</td><td>Under the "$10/month" willingness threshold, within 12-month billing</td></tr>
-        <tr><td>Pilot penetration, athletes</td><td class="num">15–25%</td><td>Judgment estimate</td></tr>
-        <tr><td>Pilot penetration, fitness-engaged</td><td class="num">2–5%</td><td>Judgment estimate</td></tr>
-        <tr><td>Estimated MA pilot members (Yr 1–2)</td><td class="num">~4,000–8,400</td><td>Derived</td></tr>
-        <tr><td>Estimated incremental ARR</td><td class="num">~$480K–$1.0M</td><td>Members × $119</td></tr>
-      </tbody>
-    </table>
-
-    <h3 class="serif" style="font-size:18px;margin:30px 0 10px;">Competitive benchmark: student discounts in wearables</h3>
-    <table>
-      <thead><tr><th>Product</th><th>Discount</th><th>Structure</th></tr></thead>
-      <tbody>
-        <tr><td>Strava Premium</td><td>~50% off</td><td>Software only, near-zero marginal cost</td></tr>
-        <tr><td>Oura Ring</td><td>10% off hardware</td><td>Hardware only; subscription untouched</td></tr>
-        <tr><td>Garmin</td><td>Up to 20% off hardware</td><td>Hardware only; no mandatory subscription</td></tr>
-        <tr><td>WHOOP (current)</td><td>None</td><td>Hardware bundled into subscription; no student tier</td></tr>
-      </tbody>
-    </table>
-    <p>No direct competitor bundles hardware into a recurring subscription the way WHOOP does. Software products discount deeply because marginal cost is near zero; hardware products discount shallowly because there is real device cost to protect. A WHOOP student tier prices a hybrid with no public precedent, so the $119/yr figure sits deliberately between the two benchmarks.</p>
-
-    <p class="srcnote"><strong>Sources:</strong> Sacra (WHOOP financials); Boston College and Boston University Athletics (WHOOP Unite partnerships); Univstats (MA enrollment, 2024–25); Grokipedia (MA NCAA programs); Coolest Gadgets / Statista (Gen Z tracker use); Rock Health 2025 Consumer Adoption Survey (wearable ownership); StudentBeans and Oura Member Care (competitor discount terms).</p>
-    <p class="srcnote"><strong>Disclaimers:</strong> Hard data (WHOOP financials, MA enrollment, competitor terms, the BC and BU partnerships) is sourced directly; the enrollment figure is from a single aggregator and should be cross-checked against NCES or mass.edu before final use. Modeled estimates (MA athlete count, fitness-engaged share) and all penetration and dollar figures are judgment, not benchmarked to a real pilot, and no hardware-bundled-subscription student precedent exists publicly. Treat downstream dollars as directional. This section demonstrates methodology and directional sizing, not a finalized business case.</p>
-  </section>
+  <p class="caveat">This reflects one candidate's outside-in analysis, one personal data point, and public information. Internal WHOOP data would refine every claim here. Most findings are directional, and the frequencies are sample-based rather than a census.</p>
 
 </main>
 </body>
